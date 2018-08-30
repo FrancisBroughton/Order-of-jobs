@@ -17,3 +17,12 @@ if the key job in the results add depenancy
 a: "", b: "c", c:"" = acb
 
 */
+
+const orderOfJobs = jobs => {
+  if (jobs.length === 0) return [];
+
+  return orderOfJobs;
+
+}
+
+module.exports = { orderOfJobs };

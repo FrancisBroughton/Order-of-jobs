@@ -1,7 +1,6 @@
 /* 
 Tests
 
-1 - it returns an empty array [] when passed an empty string ""
 2 - it returns an single array with one element when passed without a dependancy
 3 - it returns an multiple array in the correct order when passed without order dependancies
 4 - it returns an array in the correct order when one element requires depends on another
@@ -10,3 +9,16 @@ Tests
 7 - it returns an error message "jobs can’t have circular dependencies" if there is a circular dependancy
 
 */
+
+const { expect } = require("chai");
+const { orderOfJobs } = require("../orderOfJobs")
+
+describe("order of jobs", () => {
+  it("#1 returns and empty array if no job has is passed", () => {
+    const input = "";
+    const actual = orderOfJobs(input);
+    expect(actual).to.eql([])
+  })
+
+
+})
