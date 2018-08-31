@@ -26,5 +26,11 @@ describe("order of jobs", () => {
     expect(actual).to.eql(["a"]);
   })
 
+  it("#3 returns an array in the correct order when multiple jobs are passed with no dependencies", () => {
+    const input = '{"a":"", "b":"", "c":""}';
+    const actual = orderOfJobs(input);
+    expect(actual).to.eql(["a", "b", "c"])
+  })
+
 
 })
