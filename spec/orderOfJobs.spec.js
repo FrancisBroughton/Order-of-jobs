@@ -32,8 +32,12 @@ describe("order of jobs", () => {
   })
 
   it("#4 returns error message 'Jobs cant depend on itself' if it depends on itself", () => {
-    const input = '{"a": "a"}';
-    const actual = orderOfJobs(input);
+    let input = '{"a": "a"}';
+    let actual = orderOfJobs(input);
+    expect(actual).to.equal("Jobs cant depend on itself");
+
+    input = '{"a": "", "b": "", "c": "c"}'
+    actual = orderOfJobs(input);
     expect(actual).to.equal("Jobs cant depend on itself")
   })
 
