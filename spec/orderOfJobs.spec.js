@@ -20,5 +20,11 @@ describe("order of jobs", () => {
     expect(actual).to.eql([])
   })
 
+  it("#2 returns a single array when one job is passed with no dependancies are passed", () => {
+    const input = '{"a":""}';
+    const actual = orderOfJobs(input);
+    expect(actual).to.eql(["a"]);
+  })
+
 
 })

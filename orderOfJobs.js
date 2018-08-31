@@ -2,10 +2,10 @@
 the first part needs to be jobs without dependancies ie "" and z: ""
 a: "", b: "c", c:"" = acb
 
-returns an empty object id the string length is 0
+
 Loop over the object
 returns an error if a job is dependant on itself othewise
-push jobs without any dependancies into the final result.
+.
 
 second part will look over jobs with dependancies
 
@@ -18,10 +18,23 @@ a: "", b: "c", c:"" = acb
 
 */
 
-const orderOfJobs = jobs => {
+const orderOfJobs = jobs => { 
   if (jobs.length === 0) return [];
+  // returns an empty object id the string length is 0
 
-  return orderOfJobs;
+ const jobsObject = JSON.parse(jobs);
+  //turn the data to a object
+ const correctOrderOfJobs = [];
+  // need an empty object that the data can be pushed into
+  for (let keyJob in jobsObject) {
+  // loop over the data
+    if(jobsObject[keyJob].length === 0) {
+      if(!correctOrderOfJobs.includes(keyJob)) correctOrderOfJobs.push(keyJob)
+      //push jobs without any dependancies into the final result
+    }
+  }
+
+  return correctOrderOfJobs;
 
 }
 
