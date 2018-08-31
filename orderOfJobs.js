@@ -28,10 +28,13 @@ const orderOfJobs = jobs => {
   // need an empty object that the data can be pushed into
   for (let keyJob in jobsObject) {
   // loop over the data
+  if(jobsObject[keyJob] === keyJob) return ("Jobs cant depend on itself");
+
     if(jobsObject[keyJob].length === 0) {
       if(!correctOrderOfJobs.includes(keyJob)) correctOrderOfJobs.push(keyJob)
       //push jobs without any dependancies into the final result
     }
+    
   }
 
   return correctOrderOfJobs;

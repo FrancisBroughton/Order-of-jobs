@@ -1,7 +1,6 @@
 /* 
 Tests
 
-2 - it returns an single array with one element when passed without a dependancy
 3 - it returns an multiple array in the correct order when passed without order dependancies
 4 - it returns an array in the correct order when one element requires depends on another
 5 - it returns an array with element with mulitple dependancies in the correct order
@@ -32,5 +31,10 @@ describe("order of jobs", () => {
     expect(actual).to.eql(["a", "b", "c"])
   })
 
+  it("#4 returns error message 'Jobs cant depend on itself' if it depends on itself", () => {
+    const input = '{"a": "a"}';
+    const actual = orderOfJobs(input);
+    expect(actual).to.equal("Jobs cant depend on itself")
+  })
 
 })
