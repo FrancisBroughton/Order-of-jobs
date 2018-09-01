@@ -4,7 +4,6 @@ Order of jobs is a tech test for On The Beach.  The aim is to build and test a f
 
 For example '{"a": "", "b": "c", "c": ""}' will return the correct order of jobs as ["a", "c", "b"]
 
-<br />
 
 ### Getting started
 
@@ -19,7 +18,7 @@ If node is already installed your command line will return a version number. eg 
 You will need to clone the repositary. To do this copy the link, navigate to your local directory on the terminal and run command:
 
 ```
-git clone ${https://github.com/FrancisBroughton/order-of-jobs.git}
+git clone https://github.com/FrancisBroughton/order-of-jobs.git
 ```
 
 Then run:
@@ -27,7 +26,7 @@ Then run:
 npm install
 ```
 
-This project uses Chai and Mocha for testing purposes. To install these dependencies run the following command:
+This project uses [Chai](http://www.chaijs.com/guide/installation/) and [Mocha](https://mochajs.org/) for testing purposes. To install these dependencies run the following command:
 
 ```
 npm install chai mocha
@@ -38,8 +37,6 @@ To run the tests in this repositary:
 ```
 npm test
 ```
-
-<br>
 
 ### Author
 
