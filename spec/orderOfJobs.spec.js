@@ -1,14 +1,3 @@
-/* 
-Tests
-
-3 - it returns an multiple array in the correct order when passed without order dependancies
-
-
-
-7 - it returns an error message "jobs can’t have circular dependencies" if there is a circular dependancy
-
-*/
-
 const { expect } = require("chai");
 const { orderOfJobs } = require("../orderOfJobs")
 
@@ -42,14 +31,18 @@ describe("order of jobs", () => {
   })
 
   it("#5 returns an array in the correct order if one job has dependencies", () => {
-    const input = '{"a": "", "b": "c", "c": ""}';
-    const actual = orderOfJobs(input);
+    let input = '{"a": "", "b": "c", "c": ""}';
+    let actual = orderOfJobs(input);
     expect(actual).to.eql(["a", "c", "b"])
+
+    input = '{"a": "d", "b": "c", "c": ""}';
+    actual = orderOfJobs(input);
+    expect(actual).to.eql(["d","a", "c", "b"])
   })
 
   it("#6 returns an array in the correct order if many jobs have a dependency", () => {
-    const input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "b", "f": ""}';
-    const actual = orderOfJobs(input);
+    let input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "b", "f": ""}';
+    let actual = orderOfJobs(input);
     expect(actual).to.eql(["a", "d", "f", "c", "b", "e"])
   })
 
@@ -59,5 +52,4 @@ describe("order of jobs", () => {
     expect(actual).to.equal('Jobs can’t have circular dependencies');
   } )
 
- 
 })

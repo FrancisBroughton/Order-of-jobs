@@ -1,23 +1,3 @@
-/* 
-the first part needs to be jobs without dependancies ie "" and z: ""
-a: "", b: "c", c:"" = acb
-
-
-Loop over the object
-
-.
-
-second part will look over jobs with dependancies
-
-throw error if job is already in the returned array
-if neither of the jobs (key and dependancy) are in the returned list add
-if the if dependancy job is in the results add key job
-if the key job in the results add depenancy
-
-a: "", b: "c", c:"" = acb
-
-*/
-
 const orderOfJobs = jobs => { 
   if (jobs.length === 0) return [];
   // returns an empty object id the string length is 0
@@ -58,7 +38,6 @@ const orderOfJobs = jobs => {
       }
     }
   }
-
 
   return correctOrderOfJobs;
 
