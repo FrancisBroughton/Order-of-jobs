@@ -2,9 +2,9 @@
 Tests
 
 3 - it returns an multiple array in the correct order when passed without order dependancies
-4 - it returns an array in the correct order when one element requires depends on another
-5 - it returns an array with element with mulitple dependancies in the correct order
-6 - it returns an error message "jobs can’t depend on themselves" if a dependancy relys on itself
+
+
+
 7 - it returns an error message "jobs can’t have circular dependencies" if there is a circular dependancy
 
 */
@@ -41,4 +41,23 @@ describe("order of jobs", () => {
     expect(actual).to.equal("Jobs cant depend on itself")
   })
 
+  it("#5 returns an array in the correct order if one job has dependencies", () => {
+    const input = '{"a": "", "b": "c", "c": ""}';
+    const actual = orderOfJobs(input);
+    expect(actual).to.eql(["a", "c", "b"])
+  })
+
+  it("#6 returns an array in the correct order if many jobs have a dependency", () => {
+    const input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "b", "f": ""}';
+    const actual = orderOfJobs(input);
+    expect(actual).to.eql(["a", "d", "f", "c", "b", "e"])
+  })
+
+  it("#7 returns error message 'Jobs can’t have circular dependencies' if the jobs order is circular", () => {
+    const input = '{"a": "", "b": "c", "c": "f", "d": "a", "e": "", "f": "b"}';
+    const actual = orderOfJobs(input);
+    expect(actual).to.equal('Jobs can’t have circular dependencies');
+  } )
+
+ 
 })
