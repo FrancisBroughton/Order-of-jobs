@@ -39,13 +39,13 @@ const orderOfJobs = jobs => {
 
       if (correctOrderOfJobs.includes(jobsObject[keyJob]) && correctOrderOfJobs.includes(keyJob))
         return "Jobs can’t have circular dependencies";
-
-      else if(!correctOrderOfJobs.includes(jobsObject[keyJob]) && !correctOrderOfJobs.includes(keyJob)) { 
+        
+      if(!correctOrderOfJobs.includes(jobsObject[keyJob]) && !correctOrderOfJobs.includes(keyJob)) { 
           correctOrderOfJobs.push(jobsObject[keyJob], keyJob)
       }
       //if job or dependency job are not in the array add in the correct order
 
-      else if (correctOrderOfJobs.includes(keyJob) && !correctOrderOfJobs.includes(jobsObj[keyJob])) {
+      else if (correctOrderOfJobs.includes(keyJob) && !correctOrderOfJobs.includes(jobsObject[keyJob])) {
         let keyJobIndex = correctOrderOfJobs.indexOf(keyJob);
         correctOrderOfJobs.splice(keyJobIndex, 0, jobsObject[keyJob]);
       }
